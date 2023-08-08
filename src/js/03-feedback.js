@@ -17,7 +17,7 @@ fillTextarea();
 function onTextInput(evt) { 
 
     
-    formData[evt.target.name] = evt.target.value;
+    formData[evt.target.name] = evt.target.value || '';
     console.log(formData);
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
@@ -25,7 +25,12 @@ function onTextInput(evt) {
 
 function onFormSubmit(evt) { 
     evt.preventDefault();
-    
+
+if (!formData.email || !formData.message) {
+    alert('Please fill in all fields.');
+    return;
+}
+
     evt.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
 };
