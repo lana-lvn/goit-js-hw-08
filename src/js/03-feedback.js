@@ -43,7 +43,7 @@ function fillTextarea() {
         
     const parsedData = JSON.parse(savedData);
 
-    refs.textarea.value = parsedData.message;
-    refs.form.email.value = parsedData.email;
+    refs.textarea.value = parsedData.message || '';
+    refs.form.email.value = parsedData.email || '';
     };
 };
